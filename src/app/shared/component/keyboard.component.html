@@ -1,5 +1,5 @@
 <div #keyboardContainer class="key-container" style="position: relative;">
-    @for(key of keys ;track $index){
+    @for(key of keys ;track key.labels){
         <app-key [config]="key"></app-key>
     }
 </div>

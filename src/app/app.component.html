@@ -1,1 +1,4 @@
-<app-keyboard  [keyboard]="keyboard"  ></app-keyboard>
+<div>
+    <p-dropdown [options]="layoutDatasource" [formControl]="layout" optionLabel="name" optionValue="code" (ngModelChange)="onLayoutSelectChange()" ></p-dropdown>
+</div>
+<app-keyboard [keyboard]="keyboard"></app-keyboard>
