@@ -51,7 +51,7 @@ export class KeyComponent implements AfterViewInit {
   /// 获取字体大小
   getFontSize(index: number) {
     const size= this.keyboardService.computeFontSize(index, this.key!);
-    console.log(size);
+    return size;
   }
   /// 获取字体颜色
   getFontColor(index: number) {
