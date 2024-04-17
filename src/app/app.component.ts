@@ -21,6 +21,10 @@ const LAYOUT_DATA: KeyboardLayouts = [
     code: 'ATREUS',
   },
   {
+    name: 'Custom',
+    code: 'CUSTOM',
+  },
+  {
     name: 'Default 60%',
     code: 'DEFAULT_60',
   },
@@ -51,6 +55,10 @@ const LAYOUT_DATA: KeyboardLayouts = [
   {
     name: 'Leopold FC660M',
     code: 'LEOPOLD_FC660M',
+  },
+  {
+    name: 'Planck',
+    code: 'PLANCK',
   },
 ];
 

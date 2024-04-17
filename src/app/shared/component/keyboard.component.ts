@@ -60,7 +60,7 @@ export class KeyboardComponent implements OnChanges, AfterViewInit {
 
   /// 绘制键盘尺寸
   private redrawKeyboardSize() {
-    const size = this.keyboardService.computeLayoutSize(this.keyboard!.keys);
+    const size = this.keyboardService.computeKeyboardSize(this.keyboard!.keys);
     this.renderer2.setStyle(
       this.keyboardElementRef.nativeElement,
       'width',

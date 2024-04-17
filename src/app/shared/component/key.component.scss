@@ -1,3 +1,11 @@
-:host{
-    position: absolute;;
+:host {
+  position: absolute;
+}
+
+.key-box-1 {
+  position: relative;
+
+  span {
+    position: absolute;
+  }
 }
