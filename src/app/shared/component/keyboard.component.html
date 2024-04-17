@@ -1,0 +1,5 @@
+<div #keyboardContainer class="key-container" style="position: relative;">
+    @for(key of keys ;track $index){
+        <app-key [config]="key"></app-key>
+    }
+</div>
