@@ -26,7 +26,7 @@
       "x": 0.25
     },
     "PrtSc",
-    "Scroll Lock",
+    "Scroll\nLock",
     "Pause\nBreak"
   ],
   [
@@ -59,7 +59,7 @@
     {
       "x": 0.25
     },
-    "Num Lock",
+    "Num\nLock",
     "/",
     "*",
     "-"
@@ -106,7 +106,7 @@
     {
       "w": 1.75
     },
-    "Caps Lock",
+    "Caps\nLock",
     "A",
     "S",
     "D",

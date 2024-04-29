@@ -4,7 +4,7 @@ declare module '@ijprest/kle-serial' {
   export interface KeyModel {
     /// 键颜色
     color: string;
-    /// 文本 共12个
+    /// 文本 共12个 
     labels: string[];
     /// 文本颜色 对应为本坐标
     textColor: Array<string | undefined>;

@@ -1,5 +1,14 @@
 :host {
   position: absolute;
+  border: 4px solid rgb(83, 83, 83);
+  border-radius: 3px;
+  background-color: rgb(83, 83, 83);
+  font-size: 12px;
+  margin: 10px;
+  div{
+    
+    border-radius: 5px;
+  }
 }
 
 .key-box-1 {
@@ -8,4 +17,10 @@
   span {
     position: absolute;
   }
+}
+.keyBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

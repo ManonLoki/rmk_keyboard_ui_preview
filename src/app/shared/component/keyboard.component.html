@@ -1,4 +1,4 @@
-<div #keyboardContainer class="key-container" style="position: relative;">
+<div #keyboardContainer class="key-container" style="position: relative;border-radius: 10px;">
     @for(key of keys ;track key.labels){
         <app-key [key]="key"></app-key>
     }
