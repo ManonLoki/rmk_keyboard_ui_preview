@@ -64,12 +64,12 @@ export class KeyboardComponent implements OnChanges, AfterViewInit {
     this.renderer2.setStyle(
       this.keyboardElementRef.nativeElement,
       'width',
-      `${size.width}px`
+      `${size.width + 20}px`
     );
     this.renderer2.setStyle(
       this.keyboardElementRef.nativeElement,
       'height',
-      `${size.height}px`
+      `${size.height + 20}px`
     );
   }
 
