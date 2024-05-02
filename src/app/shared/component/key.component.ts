@@ -9,20 +9,16 @@ import {
 } from '@angular/core';
 
 import * as kle from '@ijprest/kle-serial';
-import {
-  KEY_HEIGHT_1U,
-  KEY_PADDING,
-  KEY_WIDTH_1U,
-  KEY_X_1U,
-  KEY_Y_1U,
-} from '../constants/keyboard';
-import { KeyboardService } from './keyboard.service';
+ 
 import { NgStyle } from '@angular/common';
+import { KeyService } from './key.service';
+import { KeyBody } from './model';
 
 @Component({
   selector: 'app-key',
   standalone: true,
   imports: [NgStyle],
+  providers: [KeyService],
   templateUrl: './key.component.html',
   styleUrl: './key.component.scss',
 })
@@ -31,11 +27,14 @@ export class KeyComponent implements AfterViewInit {
   @Input()
   key?: kle.KeyModel;
 
+  /// 真实的键体模型
+  private keyBody?: KeyBody;
+
   /// Renderer2
   private readonly renderer2 = inject(Renderer2);
 
   /// KeyService
-  private readonly keyboardService = inject(KeyboardService);
+  private readonly keyService = inject(KeyService);
 
   /// 按键宿主
   private readonly hostElementRef = inject(ElementRef);
@@ -48,62 +47,57 @@ export class KeyComponent implements AfterViewInit {
     this.redraw();
   }
 
-  /// 获取字体大小
-  getFontSize(index: number) {
-    const size= this.keyboardService.computeFontSize(index, this.key!);
-    return size;
-  }
-  /// 获取字体颜色
-  getFontColor(index: number) {
-    const color =  this.key?.textColor?.[index] ?? this.key?.default.textColor;
-
-    return color;
-  }
-
   /// 重绘
   private redraw() {
-    this.redrawKey();
-    this.redrawKeyBox1();
+    if (this.key) {
+      this.keyBody = this.keyService.computeKeyBody(this.key!);
+    }
+
+    this.redrawPosition();
+    this.redrawBox();
   }
 
   /// 重绘按键
-  private redrawKey() {
-    const position = this.keyboardService.computeKeyPosition(this.key!);
+  private redrawPosition() {
+    /// 默认取Box1的坐标为键盘的坐标
+    const coordinate = this.keyBody!.box1.coordinate;
     this.renderer2.setStyle(
       this.hostElementRef.nativeElement,
       'left',
-      `${position.x}px`
+      `${coordinate.x}px`
     );
     // 绘制坐标
     this.renderer2.setStyle(
       this.hostElementRef.nativeElement,
       'top',
-      `${position.y}px`
+      `${coordinate.y}px`
     );
   }
 
-  private redrawKeyBox1() {
+  private redrawBox() {
+    /// 绘制第一个盒子
+
     this.renderer2.setStyle(
       this.keyBox1ElementRef.nativeElement,
       'width',
-      `${this.key!.width * KEY_WIDTH_1U - 2 * KEY_PADDING}px`
+      `${this.keyBody?.box1.size.width}px`
     );
     this.renderer2.setStyle(
       this.keyBox1ElementRef.nativeElement,
       'height',
-      `${this.key!.height * KEY_HEIGHT_1U - 2 * KEY_PADDING}px`
+      `${this.keyBody?.box1.size.height}px`
     );
 
     this.renderer2.setStyle(
       this.keyBox1ElementRef.nativeElement,
       'border',
-      `1px solid ${this.key!.color}`
+      `1px solid ${this.keyBody?.box1.backgroundColor}`
     );
 
     this.renderer2.setStyle(
       this.keyBox1ElementRef.nativeElement,
-      "background-color",
-      this.key!.color
-    )
+      'background-color',
+       this.keyBody?.box1.backgroundColor
+    );
   }
 }

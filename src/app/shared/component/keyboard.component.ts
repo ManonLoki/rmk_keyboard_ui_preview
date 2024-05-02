@@ -10,8 +10,8 @@ import {
   inject,
 } from '@angular/core';
 import { KeyComponent } from './key.component';
-import { KeyboardService } from './keyboard.service';
 import * as kle from '@ijprest/kle-serial';
+import { KeyboardService } from './keyboard.service';
 /// 键盘组件
 @Component({
   selector: 'app-keyboard',
@@ -61,6 +61,8 @@ export class KeyboardComponent implements OnChanges, AfterViewInit {
   /// 绘制键盘尺寸
   private redrawKeyboardSize() {
     const size = this.keyboardService.computeKeyboardSize(this.keyboard!.keys);
+
+    console.log(size);
     this.renderer2.setStyle(
       this.keyboardElementRef.nativeElement,
       'width',
