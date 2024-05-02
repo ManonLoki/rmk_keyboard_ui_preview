@@ -54,6 +54,8 @@ export class KeyboardComponent implements OnChanges, AfterViewInit {
       return;
     }
 
+    console.log(this.keyboard.keys.filter((key) =>key.labels.some(item=>item=="Enter")));
+
     this.redrawKeyboardSize();
     this.redrawKeyboardDetail();
   }

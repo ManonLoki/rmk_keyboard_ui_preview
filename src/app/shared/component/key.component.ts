@@ -95,12 +95,12 @@ export class KeyComponent implements AfterViewInit {
     this.renderer2.setStyle(
       this.keyBox1ElementRef.nativeElement,
       'left',
-      `${this.keyBody!.box1.coordinate.x - this.keyBody!.coordinate.x}px`
+      `${this.keyBody!.box1.coordinate.x }px`
     );
     this.renderer2.setStyle(
       this.keyBox1ElementRef.nativeElement,
       'top',
-      `${this.keyBody!.box1.coordinate.y - this.keyBody!.coordinate.y}px`
+      `${this.keyBody!.box1.coordinate.y}px`
     );
 
 
