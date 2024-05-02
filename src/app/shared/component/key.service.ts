@@ -56,6 +56,10 @@ export class KeyService {
 
     // 返回
     return {
+      coordinate:{
+        x: box1X,
+        y: box1Y,
+      },
       box1,
       box2,
     };

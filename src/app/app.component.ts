@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
 
   layoutDatasource = LAYOUT_DATA;
   /// 布局选择
-  layout = new FormControl(LAYOUT_DATA[0].code);
+  layout = new FormControl(LAYOUT_DATA[1].code);
 
   private readonly layoutLoader = inject(LayoutLoader);
 

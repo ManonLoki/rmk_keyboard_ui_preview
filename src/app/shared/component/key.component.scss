@@ -6,21 +6,16 @@
   font-size: 12px;
   margin: 10px;
   div{
-    
     border-radius: 5px;
   }
 }
 
-.key-box-1 {
-  position: relative;
 
-  span {
-    position: absolute;
-  }
-}
 .keyBox{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // 这个必须是绝对定位
+  // position: absolute;
 }

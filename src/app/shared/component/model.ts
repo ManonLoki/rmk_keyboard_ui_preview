@@ -15,13 +15,7 @@ export interface Coordinate {
   y: number;
 }
 
-/// 键盘布局尺寸
-export interface KeyboardLayoutSize {
-  /// 宽度
-  width: number;
-  /// 高度
-  height: number;
-}
+
 
 /// 键体盒子
 /// 包含大小
@@ -39,6 +33,10 @@ export interface KeyBox {
 
 /// 键体
 export interface KeyBody {
+
+  //  按键有自己的坐标 这个通常是Box1的坐标
+  coordinate: Coordinate;
+
   /// 键体有2个盒子
   /// 1. 键体盒子1 理论上盒子1在盒子2上方
   box1: KeyBox;
